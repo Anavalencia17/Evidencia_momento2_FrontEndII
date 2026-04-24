@@ -281,39 +281,33 @@ body {
 .philosophy {
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items: center;     
-  min-height: 80vh;        
-  background-color: #f8f7f2; 
-  padding: 40px;
-}
-
-.philosophy-container {
-  background-color: #f8f7f2; 
+  justify-content: center;
+  align-items: center; /* Centra el bloque contenedor */
   min-height: 80vh;
-  display: flex;
-  align-items: center; 
-  padding: 0 10%;      
+  padding: 60px 20px;
+  background-color: #f8f7f2;
 }
 
 .philosophy-content {
   width: 100%;
-  max-width: 700px;        
-  text-align: left;        
+  max-width: 650px; /* Reducimos de 800px a 650px para que se vea como la foto 2 */
+  text-align: left;
 }
 
+
 .philosophy-content h1 {
-  font-size: 4rem;
+  font-size: 4.5rem; /* Aumentamos un poco el tamaño */
   color: #2d362e;
-  margin-bottom: 2rem;
-  letter-spacing: -1px;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+  letter-spacing: -2px; /* Efecto más compacto en el título */
 }
 
 .philosophy-content p {
-  font-size: 1.2rem;
-  line-height: 1.6;
+  font-size: 1.25rem;
+  line-height: 1.7; /* Un poco más de aire entre líneas */
   color: #3e4a3d;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 
