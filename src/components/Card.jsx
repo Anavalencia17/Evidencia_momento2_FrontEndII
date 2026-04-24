@@ -10,9 +10,8 @@ function Cards() {
 
   return (
     <section className="cards">
-      <h2>Nuestra Colección</h2>
-      <p>Un vistazo a algunos de los ejemplares en los que hemos trabajado. Cada árbol cuenta una historia de tiempo y paciencia.</p>
-
+      <h1>Nuestra Colección</h1>
+        <p>Un vistazo a algunos de los ejemplares en los que hemos trabajado. Cada árbol cuenta una historia de tiempo y paciencia.</p>
       <div className="cards__container">
         {bonsais.map((tree, index) => (
           <div key={index} className="card">

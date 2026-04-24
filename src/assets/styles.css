@@ -1,3 +1,4 @@
+/* ================= VARIABLES / ROOT ================= */
 :root {
   --bg-color: #f7f6f2;
   --text-color: #2c3627;
@@ -14,6 +15,7 @@
   --spacing-lg: clamp(3rem, 5vw, 6rem);
 }
 
+/* ================= RESET & GLOBALS ================= */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -28,8 +30,32 @@ body {
   line-height: 1.6;
 }
 
-/* ================= NAVBAR ================= */
+#root, .App {
+  width: 100%;
+  max-width: none;     /* Anula cualquier ancho máximo */
+  margin: 0;           /* Elimina márgenes automáticos */
+  padding: 0;          /* Elimina rellenos innecesarios */
+  box-shadow: none;    /* Quita la sombra que crea el efecto tarjeta */
+  border: none;        /* Quita cualquier borde */
+}
 
+/* ================= COMPONENTS (BUTTONS) ================= */
+.btn {
+  display: inline-block;
+  background-color: hwb(127 18% 79%); 
+  color: #ffffff;
+  padding: 18px 35px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  border-radius: 4px;      
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #3e4a3d;
+}
+
+/* ================= NAVBAR ================= */
 .navbar {
   background-color: var(--nav-bg);
   padding: var(--spacing-md) max(5%, calc((100% - 1200px) / 2));
@@ -79,7 +105,6 @@ body {
 }
 
 /* ================= HERO ================= */
-
 .hero-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -98,23 +123,6 @@ body {
   max-width: 500px;
 }
 
-
-.btn {
-  display: inline-block;
-  background-color: hwb(127 18% 79%); 
-  color: #ffffff;
-  padding: 18px 35px;
-  text-decoration: none;
-  font-size: 1.1rem;
-  border-radius: 4px;      
-  transition: background 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #3e4a3d;
-}
-
-
 .hero-image {
   width: 100%;
   height: 400px;
@@ -122,36 +130,84 @@ body {
   border-radius: 10px;
 }
 
+/* ================= PHILOSOPHY ================= */
+.philosophy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Centra el bloque contenedor */
+  min-height: 80vh;
+  padding: 60px 20px;
+  background-color: #f8f7f2;
+}
 
+.philosophy-content {
+  width: 100%;
+  max-width: 650px; /* Reducimos de 800px a 650px para que se vea como la foto 2 */
+  text-align: left;
+}
+
+.philosophy-content h1 {
+  font-size: 4.5rem; /* Aumentamos un poco el tamaño */
+  color: #2d362e;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+  letter-spacing: -2px; /* Efecto más compacto en el título */
+}
+
+.philosophy-content p {
+  font-size: 1.25rem;
+  line-height: 1.7; /* Un poco más de aire entre líneas */
+  color: #3e4a3d;
+  margin-bottom: 2rem;
+}
+
+/* ================= CARDS / GALLERY ================= */
 .cards {
   padding: var(--spacing-lg) max(5%, calc((100% - 1200px) / 2));
   text-align: center;
 }
 
 .cards h2 {
+  font-size: var(--font-h1);
+  margin-bottom: var(--spacing-sm);
+}
+
+.cards p {
+  color: #4a5a4d;
   margin-bottom: var(--spacing-md);
 }
 
 .cards__container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
 }
 
 .card {
-  background-color: var(--nav-bg);
+  height: 180px;
   border: 1px solid var(--border-color);
-  padding: var(--spacing-md);
-  border-radius: 10px;
-  transition: 0.3s;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card p {
+  color: #5d7052;
+  font-size: 0.95rem;
 }
 
 .card:hover {
+  border-color: var(--accent-color);
   transform: translateY(-5px);
 }
 
-/* ================= FORM ================= */
-
+/* ================= CONTACT FORM ================= */
 .contact {
   padding: var(--spacing-lg) max(5%, calc((100% - 800px) / 2));
   text-align: center;
@@ -221,7 +277,6 @@ body {
 }
 
 /* ================= FOOTER ================= */
-
 .footer {
   margin-top: var(--spacing-lg);
   text-align: center;
@@ -230,131 +285,50 @@ body {
   font-size: 0.9rem;
 }
 
-/* ================= RESPONSIVE ================= */
-
+/* ================= RESPONSIVE / MEDIA QUERIES ================= */
 @media (max-width: 768px) {
   .hero-section {
-  background-color: #f8f7f2; 
-  min-height: 90vh;
-  display: flex;
-  justify-content: center; 
-  align-items: center;     
-  padding: 0 20px;
+    background-color: #f8f7f2; 
+    min-height: 90vh;
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    padding: 0 20px;
   }
   .hero-container {
-  width: 100%;
-  max-width: 850px;        
-  display: flex;
-  justify-content: flex-start; 
+    width: 100%;
+    max-width: 850px;        
+    display: flex;
+    justify-content: flex-start; 
   }
-
   .hero-content {
-  text-align: left;        
+    text-align: left;        
   }
   .hero-content h1 {
-  font-size: 5rem;         
-  color: #3e4a3d;
-  margin-bottom: 2rem;
-  font-weight: 400;
-  line-height: 1.1;
+    font-size: 5rem;         
+    color: #3e4a3d;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    line-height: 1.1;
   }
   .hero-content p {
-  font-size: 1.3rem;
-  color: #3e4a3d;
-  max-width: 500px;        /* Para que el párrafo no sea una sola línea larga */
-  margin-bottom: 3rem;
-  line-height: 1.6;}
-
+    font-size: 1.3rem;
+    color: #3e4a3d;
+    max-width: 500px;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+  }
 }
 
 @media (max-width: 600px) {
   .contact {
     padding: var(--spacing-md);
   }
-
   .navbar {
     flex-direction: column;
     gap: var(--spacing-sm);
   }
-}
-
-.philosophy {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; /* Centra el bloque contenedor */
-  min-height: 80vh;
-  padding: 60px 20px;
-  background-color: #f8f7f2;
-}
-
-.philosophy-content {
-  width: 100%;
-  max-width: 650px; /* Reducimos de 800px a 650px para que se vea como la foto 2 */
-  text-align: left;
-}
-
-
-.philosophy-content h1 {
-  font-size: 4.5rem; /* Aumentamos un poco el tamaño */
-  color: #2d362e;
-  margin-bottom: 2.5rem;
-  font-weight: 500;
-  letter-spacing: -2px; /* Efecto más compacto en el título */
-}
-
-.philosophy-content p {
-  font-size: 1.25rem;
-  line-height: 1.7; /* Un poco más de aire entre líneas */
-  color: #3e4a3d;
-  margin-bottom: 2rem;
-}
-
-
-.cards {
-  padding: var(--spacing-lg) max(5%, calc((100% - 1200px) / 2));
-  text-align: center;
-}
-
-.cards h2 {
-  font-size: var(--font-h1);
-  margin-bottom: var(--spacing-sm);
-}
-
-.cards p {
-  color: #4a5a4d;
-  margin-bottom: var(--spacing-md);
-}
-
-
-.cards__container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-md);
-  margin-top: var(--spacing-lg);
-}
-
-
-.card {
-  height: 180px;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-
-.card p {
-  color: #5d7052;
-  font-size: 0.95rem;
-}
-
-
-.card:hover {
-  border-color: var(--accent-color);
-  transform: translateY(-5px);
+  .cards__container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
 }
